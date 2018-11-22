@@ -18,8 +18,6 @@ $(document).ready(function(){
 
         var results = response.data;
 
-        // Retrieves the Rating Data
-        console.log(response);
 
         // Loops the athlete for limit 10
         for(var i = 0; i < results.length; i++) {
@@ -32,7 +30,7 @@ $(document).ready(function(){
           var rating = results[i].rating;
           var p = $("<h2>").text("Rating: " + rating);
 
-          // The Images can still or animate to call the class "athleteImage" for click.
+         // creating the element for images to display
           var athleteImage = $("<img>");
           athleteImage.attr("src", results[i].images.fixed_height_still.url);
 
@@ -72,16 +70,12 @@ $(document).ready(function(){
         // Then dynamicaly generates buttons for each athlete in the array
         // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
         var athleteAdd = $("<button>");
-
         // Adds a class of athlete to our button
         athleteAdd.addClass("athlete");
-
         // Added a data-attribute
         athleteAdd.attr("data-name", topics[i]);
-
         // Provided the initial button text
         athleteAdd.text(topics[i]);
-
         // Added the button to the buttons-view div
         $("#buttons-view").append(athleteAdd);
       }
